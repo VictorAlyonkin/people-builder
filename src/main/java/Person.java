@@ -1,17 +1,17 @@
 import java.util.Objects;
 
 public class Person {
-    protected final String name;
-    protected final String surname;
-    protected int age;
-    protected String address;
+    private final String name;
+    private final String surname;
+    private Integer age;
+    private String address;
 
     public Person(String name, String surname) {
         this.name = name;
         this.surname = surname;
     }
 
-    public Person(String name, String surname, int age, String address) {
+    public Person(String name, String surname, Integer age, String address) {
         this.name = name;
         this.surname = surname;
         this.age = age;
@@ -19,7 +19,9 @@ public class Person {
     }
 
     public PersonBuilder newChildBuilder() {
-        return new PersonBuilder().setSurname(this.surname);
+        return new PersonBuilder().setSurname(this.surname)
+                .setAddress(this.address)
+                .setAge(0);
     }
 
     public String getName() {
@@ -30,7 +32,7 @@ public class Person {
         return surname;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
@@ -39,7 +41,8 @@ public class Person {
     }
 
     public void happyBirthday() {
-        this.age++;
+        if (hasAge())
+            this.age++;
     }
 
     public void setAddress(String address) {
@@ -76,7 +79,8 @@ public class Person {
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'');
 
-        if (age != -1)
+        if (
+                age != -1)
             result.append(", age=" + age + '\'');
 
         if (!address.equals(""))

@@ -16,7 +16,7 @@ public class Main {
             new PersonBuilder()
                     .build();
         } catch (IllegalArgumentException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
         try {
@@ -24,7 +24,25 @@ public class Main {
                     .setAge(-100)
                     .build();
         } catch (IllegalArgumentException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
+
+        //Пример для показа исправлений
+
+        Person person = new PersonBuilder()
+                .setName("SomeName")
+                .setSurname("SomeName")
+                .setAddress("City")
+                .build();
+
+        System.out.println("Person has age? " + person.hasAge());
+        System.out.println(person);
+
+        person.happyBirthday();
+        person.happyBirthday();
+        person.happyBirthday();
+        person.happyBirthday();
+        System.out.println("Person has age? " + person.hasAge());
+        System.out.println(person);
     }
 }

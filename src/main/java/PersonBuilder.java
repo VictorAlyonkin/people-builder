@@ -1,7 +1,7 @@
 public class PersonBuilder {
     private String name;
     private String surname;
-    private int age;
+    private Integer age;
     private String address;
 
 
@@ -15,7 +15,7 @@ public class PersonBuilder {
         return this;
     }
 
-    public PersonBuilder setAge(int age) {
+    public PersonBuilder setAge(Integer age) {
         if (age < 0)
             throw new IllegalArgumentException("Укажите корректный возраст!");
         this.age = age;
@@ -33,7 +33,7 @@ public class PersonBuilder {
                         this.surname == null)
             throw new IllegalArgumentException("Не указаны обязательные поля!");
 
-        this.age = this.age == 0 ? -1 : this.age;
+        this.age = this.age == null ? -1 : this.age;
         this.address = this.address == null ? "" : this.address;
         return new Person(this.name, this.surname, this.age, this.address);
     }
