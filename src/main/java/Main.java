@@ -15,7 +15,7 @@ public class Main {
         try {
             new PersonBuilder()
                     .build();
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalStateException  e) {
             System.out.println(e.getMessage());
         }
 

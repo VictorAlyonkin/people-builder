@@ -31,7 +31,7 @@ public class PersonBuilder {
         if (
                 this.name == null ||
                         this.surname == null)
-            throw new IllegalArgumentException("Не указаны обязательные поля!");
+            throw new IllegalStateException("Не указаны обязательные поля!");
 
         this.age = this.age == null ? -1 : this.age;
         this.address = this.address == null ? "" : this.address;
